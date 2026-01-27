@@ -11,6 +11,25 @@
         int row = 0;
         int turn = 1;
         bool GameOver = false;
+        int timer;
+        Console.WriteLine("Scegliere la difficolta\n(1) facile\n(2) normale\n(3) difficile\n\nSERVE SOLO PER UN TIMER");
+        int scelta_difficolta = Convert.ToInt32(Console.ReadLine());
+        switch (scelta_difficolta)
+        {
+            case 1:
+                timer = 2000;
+                break;
+            case 2:
+                timer = 1500;
+                break;
+            case 3:
+                timer = 750;
+                break;
+            default:
+                timer = 750;
+                break;
+
+        }
         while (!GameOver)
         {
             do
@@ -54,7 +73,7 @@
                 turn = Convert.ToInt32(Console.ReadLine());
             }
             stampaArray(tab);
-            Thread.Sleep(1500);
+            Thread.Sleep(timer);
             Console.Clear();
             if (controlloWin(tab))
             {
@@ -71,7 +90,7 @@
             return true;
         else
         {
-            Console.WriteLine("sbagliato qualcosa mi sa brothero");
+            Console.WriteLine("HAI USATO UNA CASELLA GIA SEGNATA; RIPROVA!");
             return false;
         }
 
